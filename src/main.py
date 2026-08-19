@@ -1,29 +1,6 @@
-def limpiarMatriz(matriz: list,indice: int):
-    matriz.pop(indice)
-    for element in matriz:
-        element.pop(indice)
-    return len(matriz)
+from helpers.algoritmos import *
 
-def layout_algoritmo(matriz):
-    indices = list(range(len(matriz)))
-    secuencia = []
-    while len(matriz) > 1:
-        suma = [0]*len(matriz)
-        for elemento in matriz:
-            for i in range(len(matriz)):
-                suma[i] += elemento[i]
-        pos = suma.index(min(suma))
-        secuencia.append(indices[pos])
-        limpiarMatriz(matriz, pos)
-        indices.pop(pos)
-
-    secuencia.append(indices[0])
-    respuesta=list()
-    for elemento in secuencia:
-        respuesta.append(int(elemento)+1)
-    return respuesta
-
-
+# Ejemplo uso
 matriz = [
     [0,24,0,0,0,0],
     [0,0,64,0,0,0],
@@ -36,4 +13,3 @@ matriz = [
 respuesta = layout_algoritmo(matriz)
 
 print(respuesta)
-
